@@ -1,0 +1,2 @@
+Logged: ORDER=RGB -> observed='i see red.'
+Logged: ORDER=GRB -> observed='second one is green.'

@@ -1,0 +1,190 @@
+(footprint "C_Disc_D3.4mm_W2.1mm_P2.50mm"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "C, Disc series, Radial, pin pitch=2.50mm, diameter*width=3.4*2.1mm^2, Capacitor, http://www.vishay.com/docs/45233/krseries.pdf")
+	(tags "C Disc series Radial pin pitch 2.50mm diameter 3.4mm width 2.1mm Capacitor")
+	(property "Reference" "C6"
+		(at 1.25 -2.3 180)
+		(layer "F.SilkS")
+		(uuid "bb9c07c1-4edb-4010-a678-f6d29f27e6b2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "0.1µF"
+		(at 1.25 2.3 180)
+		(layer "F.Fab")
+		(uuid "0c8c0ab3-7393-4db0-92ca-86f0f207e81d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1c233331-13f6-41a8-b5fb-1430ff1f84a9")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" "Unpolarized capacitor, small symbol"
+		(at 0 0 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d35bc869-82d3-47e8-a435-102bdfad2148")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "KiLib_Generator" "capacitor/THT/other"
+		(at 0 0 180)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "20dc33a4-a172-4034-94a7-c005e95f711e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property ki_fp_filters "C_*")
+	(sheetname "/")
+	(sheetfile "perfboard-01.kicad_sch")
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -0.57 -1.17)
+		(end 3.07 -1.17)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "71367bc6-9a8e-433d-b768-0a59e96a6c33")
+	)
+	(fp_line
+		(start -0.57 -0.87)
+		(end -0.57 -1.17)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7b56100f-5707-4735-abfa-cb44c49ac47d")
+	)
+	(fp_line
+		(start -0.57 1.17)
+		(end -0.57 0.87)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d8ba8a13-3087-4901-afbd-69e5e8533748")
+	)
+	(fp_line
+		(start 3.07 -1.17)
+		(end 3.07 -0.87)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "11a64de5-222a-45e0-9f60-e0abab6302a2")
+	)
+	(fp_line
+		(start 3.07 0.87)
+		(end 3.07 1.17)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "a4703372-f3be-465b-8d7b-a32e3c35ffa8")
+	)
+	(fp_line
+		(start 3.07 1.17)
+		(end -0.57 1.17)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0eea342f-a19b-4dab-803c-ab21849e52c8")
+	)
+	(fp_rect
+		(start -1.05 -1.3)
+		(end 3.55 1.3)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "B.CrtYd")
+		(uuid "60221235-b2d1-4a6d-9e0f-2727de6ee260")
+	)
+	(fp_rect
+		(start -0.45 -1.05)
+		(end 2.95 1.05)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "119457fe-7b8b-46ee-b7d6-5b1e0066ff26")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 1.25 0 180)
+		(layer "F.Fab")
+		(uuid "f356795e-17a4-48e5-a723-5bc01cc56966")
+		(effects
+			(font
+				(size 0.68 0.68)
+				(thickness 0.102)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 0 0)
+		(size 1.6 1.6)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "2a3bc09a-97b2-4df2-b1b3-72bab70adbd0")
+	)
+	(pad "2" thru_hole circle
+		(at 2.5 0)
+		(size 1.6 1.6)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "55a22467-699d-40b7-81fa-31335fee32d5")
+	)
+	(embedded_fonts no)
+	(model "${KICAD10_3DMODEL_DIR}/Capacitor_THT.3dshapes/C_Disc_D3.4mm_W2.1mm_P2.50mm.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

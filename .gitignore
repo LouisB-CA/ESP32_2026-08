@@ -1,0 +1,27 @@
+
+build/
+.cache/
+.ipynb_checkpoints/
+.pio/
+__pycache__/
+target/
+.venv/
+
+*.bak
+fp-info-cache
+*.lock
+*.lck
+*.pyc
+*.pyo
+*.tgz
+tmp*
+
+# KiCad
+kicad/**/*-backups/
+kicad/**/*bak
+electrical/**/*-backups/
+
+# FreeCAD
+mechanical/*.FCBak
+
+

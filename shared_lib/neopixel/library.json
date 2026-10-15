@@ -1,0 +1,7 @@
+{
+  "name": "neopixel",
+  "dependencies": {
+    "fastled/FastLED": "^3.9.2"
+  }
+}
+

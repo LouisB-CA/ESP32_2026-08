@@ -1,0 +1,46 @@
+// project.code-workspace
+// VSCode multi-root workspace for ESP32
+// See extras/vscode-pio-workspace-notes.md for usage guidance
+{
+    "folders": [
+        {
+            "name": "ESP 32 2026-08 (repo)",
+            "path": "."
+        },
+        {
+            "name": "blinky (breadboard version)",
+            "path": "sketches/blinky.bb"
+        },
+        {
+            "name": "Dual blinky (breadboard version)",
+            "path": "sketches/blinky_dual.bb"
+        },
+        {
+            "name": "clear (breadboard version)",
+            "path": "sketches/clear.bb"
+        },
+        {
+            "name": "DS18B20 (breadboard version)",
+            "path": "sketches/ds18b20.bb"
+        },
+        {
+            "name": "Rough ds18b20 (no longer used)",
+            "path": "sketches/ds18b20-rough.bb"
+        },
+        {
+            "name": "MQTT (not yet implemented)",
+            "path": "sketches/MQTT"
+        },
+        {
+            "name": "Neopixel (breadboard version)",
+            "path": "sketches/neopixel.bb"
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "**/.pio": true
+        }
+    }
+}
+
+
