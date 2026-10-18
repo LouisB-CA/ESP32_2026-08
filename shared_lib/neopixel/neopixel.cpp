@@ -14,6 +14,7 @@
 #define FASTLED_ESP32_RMT
 
 #include "neopixel.h"
+#include <Arduino.h>    // declares digitalWrite, LOW, HIGH
 
 // -------------------------------------------------------------------
 // Module configuration — internal to this module only.
@@ -21,8 +22,10 @@
 // are not exposed in neopixel.h. Edit these two lines to reuse this
 // module with different hardware.
 // -------------------------------------------------------------------
-static const uint8_t  NEOPIXEL_PIN   = 27;  // ESP32 GPIO driving the chain
-static const uint16_t NEOPIXEL_COUNT = 16;  // pixel chain buffer size in pixels
+
+static const uint8_t  NEOPIXEL_ENABLE = 26;  // set low to enable
+static const uint8_t  NEOPIXEL_DATA   = 27;  // ESP32 GPIO driving the chain
+static const uint16_t NEOPIXEL_COUNT  =  3;  // pixel chain buffer size in pixels
 
 // LED chipset assumption: WS2812 (the common NeoPixel part). FastLED's
 // default color order for WS2812 is GRB, which matches how these strips
@@ -35,16 +38,19 @@ static CRGB leds[NEOPIXEL_COUNT];
 
 // -------------------------------------------------------------------
 // neopixelInit()
-//   Registers the pixel buffer with FastLED on NEOPIXEL_PIN.
+//   Registers the pixel buffer with FastLED on GPIO pin NEOPIXEL_DATA.
 //   FastLED's addLeds<>() call requires the chipset and pin as
 //   template parameters — they must be known at compile time. This
-//   is why NEOPIXEL_PIN is a fixed constant above rather than a
+//   is why NEOPIXEL_DATA is a fixed constant above rather than a
 //   runtime argument to this function (see the design discussion in
 //   neopixel.h for background).
 // -------------------------------------------------------------------
 void neopixelInit() {
-    FastLED.addLeds<WS2812, NEOPIXEL_PIN, RGB>(leds, NEOPIXEL_COUNT);
+    pinMode(NEOPIXEL_ENABLE, OUTPUT);
+    neopixelEnable(true);
+    FastLED.addLeds<WS2812, NEOPIXEL_DATA, RGB>(leds, NEOPIXEL_COUNT);
     neopixelClear();
+    neopixelSetBrightness(128);
     neopixelShow();
 }
 
@@ -93,3 +99,17 @@ void neopixelSetBrightness(uint8_t brightness) {
 void neopixelShow() {
     FastLED.show();
 }
+
+// -------------------------------------------------------------------
+// neopixelEnable(boolean)
+//   Enable the levelshifter.
+// -------------------------------------------------------------------
+void neopixelEnable(bool flag) {
+    if (flag) {
+        digitalWrite(NEOPIXEL_ENABLE, LOW);
+    } else {
+        digitalWrite(NEOPIXEL_ENABLE, HIGH);
+        digitalWrite(NEOPIXEL_DATA,   HIGH);
+    }
+}
+

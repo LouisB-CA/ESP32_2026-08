@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"name" : "Neopixels"
+			"path" : "sketches/neopixels"
+		},
+		{
+			"name" : "Shared library"
+			"path" : "shared_lib"
+		},
+		{
+			"name" : "Documentation"
+			"path" : "docs"
+		}
+		{
+			"name" : "Extras"
+			"path" : "extras"
+		}
+	],
+    "settings": {
+        "files.exclude": {
+            "**/.pio": true
+        }
+    }
+}

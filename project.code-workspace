@@ -28,12 +28,20 @@
             "path": "sketches/ds18b20-rough.bb"
         },
         {
-            "name": "MQTT (not yet implemented)",
+            "name": "Neopixel (breadboard version)",
+            "path": "sketches/neopixel.bb"
+        },
+        {
+            "name": "MQTT",
             "path": "sketches/MQTT"
         },
         {
-            "name": "Neopixel (breadboard version)",
-            "path": "sketches/neopixel.bb"
+            "name": "Neopixel",
+            "path": "sketches/neopixel"
+        },
+        {
+            "name": "neopixels",
+            "path": "sketches/neopixels"
         }
     ],
     "settings": {

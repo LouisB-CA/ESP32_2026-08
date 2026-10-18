@@ -5,7 +5,7 @@
 
 // Bus pin and sensor objects are private to this module -- other
 // files only ever talk to the sensor through the functions below.
-const uint8_t OneWireBusPin = 21;
+const uint8_t OneWireBusPin = 32;
 
 OneWire oneWire(OneWireBusPin);
 DallasTemperature sensors(&oneWire);

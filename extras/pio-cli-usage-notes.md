@@ -52,11 +52,13 @@ pio pkg update                                        # update all packages
 
 # ── BOARDS / PLATFORMS ─────────────────────────────────────────────────────
 pio boards | grep uno                                 # find board definition name
+pio boards | grep esp32dev                            # find board definition name
 pio pkg list                                          # show installed packages
 pio pkg update                                        # update all packages
 
 # ── PROJECT ────────────────────────────────────────────────────────────────
 pio project init --board uno                          # create a new project in current dir
+pio project init --board esp32dev -d ./clear          # create a new project in dir clear
 pio project config                                    # dump the resolved project configuration
 
 # ── MISC ───────────────────────────────────────────────────────────────────

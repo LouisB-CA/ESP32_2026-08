@@ -71,6 +71,12 @@
 void neopixelInit();
 
 // -------------------------------------------------------------------
+// neopixelEnable(boolean)
+//   Enable/disable the level shifter.
+//   Argument is true for enable, false for disable.
+void neopixelEnable(bool);
+
+// -------------------------------------------------------------------
 // neopixelSetPixel(index, color)
 //   Sets a single pixel's color in the in-memory buffer.
 //     index - zero-based pixel position (0 .. count-1)
@@ -107,7 +113,9 @@ void neopixelSetBrightness(uint8_t brightness);
 // neopixelShow()
 //   Pushes the current buffer contents out to the physical LEDs.
 //   Nothing set via neopixelSetPixel()/neopixelFill()/neopixelClear()
-//   is visible on the hardware until this is called.
+//   is visible on the hardware until two conditions hold:
+//   (1) neopixelEnable(true) is called first, and then
+//   (2) neopixelShow() is called.
 // -------------------------------------------------------------------
 void neopixelShow();
 

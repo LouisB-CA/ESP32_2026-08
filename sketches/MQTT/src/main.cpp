@@ -1,59 +1,42 @@
 #include "output.h"
-#include "led.h"
-#include "temp.h"
-#include "touch.h"
+#include "led.h"        // defines LED pin
+#include "temp.h"       // defines temperature sensor pin
 #include "wifi.h"
 #include "mqtt.h"
+#include "neopixel.h"   // defines neopixel enable and data pins
 #include <Arduino.h>
 
-// Number of alternating LED blinks per loop iteration, before each
-// temperature reading.
-const uint8_t BlinksPerCycle = 5;
-
-// Delay (ms) used to space out the serial printout after a reading.
-// Deliberately separate from led.cpp's blink timing -- these two
-// delays happen to share a value in the original sketch, but they
-// control unrelated things and shouldn't be tied together.
-const uint16_t ReadoutDelayMs = 500;
-
+// subscribers can use mosquitto_sub -h 192.168.12.12 -p 1883 -t DS18B20 -v
 const char* mqtt_topic = "DS18B20";
 const size_t MSG_BUFF_SIZE = 256;
 char mqtt_message[MSG_BUFF_SIZE];
 
+// Minimum loop period
+const uint16_t loopDelayMs = 2500;
+
 void setup() {
     outputInit();  // do this first, so others can use Serial.print()
+    neopixelInit();
+    neopixelEnable(false);
     ledInit();
     tempInit();
-    touchInit();
     wifiInit();
+    delay(500);
     mqttInit();
 }
 
 void loop() {
-
     mqttEnsureConnected();
 
-    // check for a touch event
-    while ( touchPadATouched() || touchPadBTouched() ) {
-        setLED_A( touchPadATouched() );
-        setLED_B( touchPadBTouched() );
-    }
-    setBothLeds(false);
-
-    blinkAlternately(BlinksPerCycle);
-
-    // Hold both LEDs on steadily while the sensor is read, as a
-    // visual "busy" indicator distinct from the alternating pattern.
-    setBothLeds(true);
-
+    setLED(true);
     tempRequestReadings();
+    setLED(false);
 
     float tempC = tempReadC();
     float tempF = tempReadF();
 
     Serial.print("Raw C: ");
     Serial.println(tempC);
-    delay(ReadoutDelayMs);
     snprintf(mqtt_message, MSG_BUFF_SIZE, 
         "Raw C: %8.3f, Raw F: %8.3f\0",
         tempC, tempF);
@@ -61,8 +44,7 @@ void loop() {
     Serial.print("Raw F: ");
     Serial.println(tempF);
 
-
-
-    setBothLeds(false);
-    delay(ReadoutDelayMs);
+    delay(loopDelayMs);
 }
+
+
